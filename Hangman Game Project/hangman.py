@@ -11,7 +11,6 @@ def word_corrector(words):
 
 def hangman():
     word = word_corrector(words)
-    print(word)
     word_letters = set(word)
     alphabet = set(string.ascii_lowercase)
     used_letters = set()
@@ -31,6 +30,8 @@ def hangman():
 
             if guess in word_letters:
                 word_letters.remove(guess)
+                if len(word_letters) == 0:
+                    print("You win!")
             else:
                 lives -= 1
                 print(f"Wrong guess! Lives left:{lives}")
