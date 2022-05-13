@@ -23,7 +23,7 @@ def next_turn(row, column):
             if not check_winner():
                 # It is the next player O's turn
                 player = players[1]
-                label.config(text=("Player 2's Turn"))
+                label.config(text=("Winner Uncertain:\nPlayer 2's Turn"))
             # If yes
             elif check_winner() == True:
                 # Display X wins and Turn the O Squares red
@@ -42,11 +42,11 @@ def next_turn(row, column):
             if not check_winner():
                 # It is the next player X's turn
                 player = players[0]
-                label.config(text=("Player 1's Turn"))
+                label.config(text=("Winner Uncertain:\nPlayer 1's Turn"))
             # If yes, Display O wins and Turn the X squares red
             elif check_winner() == True:
                 turning_red(1)
-                label.config(text=("Player 2 Wins"))
+                label.config(text=("Player 2 Wins!"))
             # Display Draw if it is a tie
             elif check_winner() == "Draw":
                 label.config(text="Draw!")
@@ -148,7 +148,7 @@ buttons = [[0, 0, 0],
            [0, 0, 0],
            [0, 0, 0]]
 # At start of game, state the player to start
-label = Label(text=player + " Starts", font=('consolas', 40))
+label = Label(text=player + " Starts", font=('consolas', 20))
 label.pack(side="top")
 # Create a reset button to reset the game when it ends
 reset_button = Button(text="RESET", font=('consolas', 20), command=new_game)
